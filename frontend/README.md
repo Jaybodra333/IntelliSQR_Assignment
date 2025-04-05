@@ -1,54 +1,70 @@
-# React + TypeScript + Vite
+# Frontend - IntelliSQR Login System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React-based login system built with TypeScript and Vite.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React 19** - Latest version of React for building user interfaces
+- **TypeScript** - For type-safe development
+- **Vite** - Next generation frontend tooling
+- **TailwindCSS** - Utility-first CSS framework
+- **Libraries**:
+  - `@tanstack/react-query` - For data fetching and state management
+  - `react-hook-form` - Form handling and validation
+  - `zod` - Schema validation
+  - `axios` - HTTP client
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+src/
+├── components/       # React components
+│   └── LoginForm.tsx
+├── schemas/         # Zod schemas for validation
+│   └── login.schema.ts
+├── services/        # API services
+│   └── auth.service.ts
+├── App.tsx         # Root component
+└── main.tsx        # Entry point
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Setup Instructions
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. **Install Dependencies**
+   ```bash
+   npm install
+   ```
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+2. **Environment Setup**
+   - No environment variables needed for development
+   - Backend URL is configured in `src/services/auth.service.ts`
+
+## Running Locally
+
+1. **Development Mode**
+   ```bash
+   npm run dev
+   ```
+   This will start the development server on http://localhost:5173
+
+2. **Build for Production**
+   ```bash
+   npm run build
+   ```
+
+3. **Preview Production Build**
+   ```bash
+   npm run preview
+   ```
+
+## Additional Scripts
+
+- `npm run lint` - Run ESLint for code quality checks
+
+## Development Notes
+
+- Uses strict TypeScript configuration
+- ESLint configured with React-specific rules
+- Tailwind CSS for styling
+- React Query for API state management
+- Built-in error handling and form validation
